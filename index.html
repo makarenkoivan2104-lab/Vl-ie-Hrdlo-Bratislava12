@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vlčie Hrdlo — студенческое общежитие EUBA</title>
+<meta name="description" content="Информационный сайт студенческого общежития ŠD Vlčie hrdlo в Братиславе.">
+<style>
+:root{
+  --bg:#f5f7fb; --card:#fff; --text:#101828; --muted:#667085;
+  --accent:#1747e8; --accent2:#0b2fa5; --line:#e6e9ef;
+  --dark:#0b1220; --radius:24px; --shadow:0 16px 50px rgba(16,24,40,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:var(--bg);line-height:1.55}
+a{color:inherit;text-decoration:none}
+.container{width:min(1160px,92%);margin:auto}
+.nav{position:fixed;z-index:20;top:16px;left:50%;transform:translateX(-50%);width:min(1160px,92%);background:rgba(255,255,255,.82);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.8);box-shadow:0 10px 35px rgba(16,24,40,.10);border-radius:18px;padding:12px 18px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;letter-spacing:-.03em}.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:22px;font-size:14px;font-weight:700;color:#344054}
+.navlinks a:hover{color:var(--accent)}
+.hero{min-height:760px;display:flex;align-items:end;position:relative;overflow:hidden;background:#111}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,10,25,.78),rgba(4,10,25,.32) 55%,rgba(4,10,25,.22)),url("https://img.cas.sk/cas/1280px-c2/1587343.jpg") center/cover no-repeat;transform:scale(1.02)}
+.hero .container{position:relative;color:white;padding:170px 0 85px}
+.eyebrow{display:inline-flex;padding:7px 11px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.10);border-radius:999px;font-size:13px;font-weight:800;letter-spacing:.03em}
+h1{font-size:clamp(48px,7vw,88px);line-height:.94;letter-spacing:-.065em;margin:20px 0 22px;max-width:850px}
+.hero p{font-size:19px;max-width:650px;color:#e5e7eb}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:14px;font-weight:800;background:white;color:#101828}
+.btn.primary{background:var(--accent);color:white}.btn.primary:hover{background:var(--accent2)}
+section{padding:90px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:34px}
+.kicker{font-size:13px;text-transform:uppercase;letter-spacing:.12em;font-weight:900;color:var(--accent)}
+h2{font-size:clamp(32px,4vw,54px);line-height:1.02;letter-spacing:-.05em;margin:8px 0 0}
+.lead{max-width:550px;color:var(--muted)}
+.grid{display:grid;gap:18px}.features{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:0 8px 30px rgba(16,24,40,.04)}
+.icon{width:44px;height:44px;border-radius:14px;background:#eef3ff;color:var(--accent);display:grid;place-items:center;font-size:21px;margin-bottom:18px}
+.card h3{margin:0 0 8px;font-size:19px}.card p{margin:0;color:var(--muted)}
+.info{grid-template-columns:1.2fr .8fr;align-items:stretch}
+.photo{border-radius:var(--radius);overflow:hidden;min-height:430px;position:relative}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo .tag{position:absolute;left:18px;bottom:18px;background:rgba(0,0,0,.65);color:white;padding:8px 12px;border-radius:999px;font-size:12px}
+.price{font-size:48px;font-weight:900;letter-spacing:-.05em}.price small{font-size:16px;color:var(--muted);font-weight:700}
+.price-row{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.price-row:last-child{border-bottom:0}
+.gallery{grid-template-columns:repeat(12,1fr)}
+.gallery figure{margin:0;border-radius:22px;overflow:hidden;background:#ddd;min-height:280px;position:relative}
+.gallery figure:nth-child(1){grid-column:span 7}.gallery figure:nth-child(2){grid-column:span 5}
+.gallery figure:nth-child(3){grid-column:span 5}.gallery figure:nth-child(4){grid-column:span 7}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery figcaption{position:absolute;left:14px;bottom:14px;background:rgba(0,0,0,.65);color:#fff;padding:7px 10px;border-radius:999px;font-size:12px}
+.transport{grid-template-columns:repeat(3,1fr)}
+.route{font-size:18px;font-weight:850;margin-bottom:5px}.route span{color:var(--accent)}
+.contact{background:var(--dark);color:white;border-radius:32px;padding:45px}
+.contact .muted{color:#aeb8cb}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}.contact a{text-decoration:underline;text-underline-offset:4px}
+footer{padding:35px 0;color:#667085;font-size:13px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;place-items:center;z-index:50;padding:30px}.modal.open{display:grid}.modal img{max-width:min(1100px,94vw);max-height:88vh;border-radius:18px}.close{position:fixed;right:22px;top:18px;color:white;font-size:32px;cursor:pointer}
+@media(max-width:900px){.features{grid-template-columns:repeat(2,1fr)}.info{grid-template-columns:1fr}.transport{grid-template-columns:1fr}.navlinks{display:none}.hero{min-height:700px}.contact-grid{grid-template-columns:1fr}}
+@media(max-width:620px){section{padding:65px 0}.features{grid-template-columns:1fr}.gallery figure,.gallery figure:nth-child(1),.gallery figure:nth-child(2),.gallery figure:nth-child(3),.gallery figure:nth-child(4){grid-column:span 12;min-height:260px}h1{font-size:54px}.hero p{font-size:17px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="#top">VLČIE <span>HRDLO</span></a>
+  <div class="navlinks">
+    <a href="#about">Общага</a><a href="#rooms">Комнаты</a><a href="#gallery">Фото</a><a href="#transport">Транспорт</a><a href="#contacts">Контакты</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container">
+    <div class="eyebrow">EUBA · Bratislava · Vlčie Hrdlo 74</div>
+    <h1>Студенческая жизнь начинается здесь.</h1>
+    <p>ŠD Vlčie hrdlo — студенческое общежитие Экономического университета в Братиславе. Реальные фотографии, условия проживания, транспорт и полезная информация в одном месте.</p>
+    <div class="actions">
+      <a class="btn primary" href="#gallery">Смотреть фото →</a>
+      <a class="btn" href="#contacts">Контакты</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">О месте</div><h2>Vlčie Hrdlo без прикрас.</h2></div>
+      <p class="lead">Общежитие находится по адресу Vlčie Hrdlo 74 в Братиславе и входит в систему общежитий EUBA.</p>
+    </div>
+    <div class="grid features">
+      <div class="card"><div class="icon">🛏</div><h3>Блочная система</h3><p>В блоке — две двухместные комнаты или одна двухместная комната.</p></div>
+      <div class="card"><div class="icon">🚿</div><h3>Санузел</h3><p>В блоке предусмотрены WC, душ и умывальник.</p></div>
+      <div class="card"><div class="icon">📶</div><h3>Wi‑Fi</h3><p>Wi‑Fi доступен по всему общежитию.</p></div>
+      <div class="card"><div class="icon">🍳</div><h3>Кухня</h3><p>Кухонная зона есть на каждом этаже: холодильник и электроплитка.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="rooms">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">Проживание</div><h2>Что внутри?</h2></div>
+      <p class="lead">На каждом этаже также есть учебная зона и прачечная. В здании работают два лифта.</p>
+    </div>
+    <div class="grid info">
+      <div class="photo">
+        <img src="https://sp.euba.sk/www_write/files/galeria/ubytovanie/vlcie_hrdlo/thumbs/phoca_thumb_l_sd_vlcie_hrdlo_6.jpg" alt="Реальная комната ŠD Vlčie hrdlo">
+        <div class="tag">Реальное фото комнаты · ŠP EUBA</div>
+      </div>
+      <div class="card">
+        <div class="kicker">Стоимость</div>
+        <div class="price">€95 <small>/ человек / месяц</small></div>
+        <div class="price-row"><span>2 комнаты на блок</span><strong>€95</strong></div>
+        <div class="price-row"><span>1 комната на блок</span><strong>€105</strong></div>
+        <p style="margin-top:18px;color:#667085">Цены указаны на странице Študentský parlament EUBA; перед заселением стоит проверить актуальный тариф в EUBA/AiS2.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">Галерея</div><h2>Реальные фотографии.</h2></div>
+      <p class="lead">Фотографии взяты со страниц EUBA/Študentský parlament EUBA и из публикации о здании. Нажми на фото, чтобы открыть его крупнее.</p>
+    </div>
+    <div class="grid gallery">
+      <figure><img onclick="openImg(this.src)" src="https://img.cas.sk/cas/1280px-c2/1587343.jpg" alt="Здание ŠD Vlčie hrdlo"><figcaption>Здание · Vlčie Hrdlo 74</figcaption></figure>
+      <figure><img onclick="openImg(this.src)" src="https://sp.euba.sk/www_write/files/galeria/ubytovanie/vlcie_hrdlo/thumbs/phoca_thumb_l_sd_vlcie_hrdlo_6.jpg" alt="Комната"><figcaption>Комната</figcaption></figure>
+      <figure><img onclick="openImg(this.src)" src="https://sp.euba.sk/www_write/files/galeria/ubytovanie/vlcie_hrdlo/thumbs/phoca_thumb_l_sd_vlcie_hrdlo_5.jpg" alt="Санузел и коридор"><figcaption>Санузел / блок</figcaption></figure>
+      <figure><img onclick="openImg(this.src)" src="https://sp.euba.sk/www_write/files/galeria/ubytovanie/vlcie_hrdlo/thumbs/phoca_thumb_l_sd_vlcie_hrdlo_1.jpg" alt="Комната общежития"><figcaption>Ещё одна комната</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="transport">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">Транспорт</div><h2>Доехать можно без машины.</h2></div>
+      <p class="lead">Официальная страница EUBA указывает прямые автобусные связи с университетом, Mlynské nivy и главным вокзалом.</p>
+    </div>
+    <div class="grid transport">
+      <div class="card"><div class="icon">🎓</div><div class="route"><span>87</span> → EUBA</div><p>До остановки Ekonomická univerzita / Vlčie Hrdlo.</p></div>
+      <div class="card"><div class="icon">🚌</div><div class="route"><span>70</span> → Mlynské nivy</div><p>Связь с автовокзалом Mlynské nivy и центром.</p></div>
+      <div class="card"><div class="icon">🚉</div><div class="route"><span>70 + 71</span> → Hlavná stanica</div><p>Маршрут до главного железнодорожного вокзала с пересадкой.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="container">
+    <div class="contact">
+      <div class="contact-grid">
+        <div>
+          <div class="kicker" style="color:#91a9ff">Контакты</div>
+          <h2 style="margin-top:10px">ŠD Vlčie hrdlo</h2>
+          <p class="muted">Vlčie Hrdlo 74, 821 07 Bratislava</p>
+          <p><strong>Вахта:</strong> <a href="tel:+421267291060">+421 2 6729 1060</a></p>
+          <p><strong>Университет:</strong> <a href="https://euba.sk/student/informacie-pre-studentov/ubytovanie/sd-vlcie-hrdlo" target="_blank">официальная страница EUBA ↗</a></p>
+        </div>
+        <div>
+          <h3>Полезно знать</h3>
+          <p class="muted">На сайте EUBA размещены актуальные документы по общежитиям и правила проживания. Для оплаты и заселения ориентируйся на данные, которые отображаются в AiS2.</p>
+          <a class="btn primary" href="https://euba.sk/student/informacie-pre-studentov/dormitories" target="_blank">Открыть EUBA Dormitories ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">© 2026 Vlčie Hrdlo Student Guide · Неофициальный информационный сайт. Фото и факты принадлежат соответствующим правообладателям.</div>
+</footer>
+
+<div class="modal" id="modal" onclick="closeImg()"><div class="close">×</div><img id="modalImg" alt=""></div>
+<script>
+function openImg(src){document.getElementById('modalImg').src=src;document.getElementById('modal').classList.add('open')}
+function closeImg(){document.getElementById('modal').classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeImg()})
+</script>
+</body>
+</html>
